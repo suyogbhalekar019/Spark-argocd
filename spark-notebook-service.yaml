@@ -15,3 +15,4 @@ spec:
   - port: 4040
     targetPort: 4040
     name: spark-ui
+    nodePort: 30404
