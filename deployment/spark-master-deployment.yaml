@@ -16,6 +16,19 @@ spec:
       containers:
       - name: spark-master
         image: sk97/spark-master-custom:latest
+        imagePullPolicy: IfNotPresent
+          livenessProbe:
+            httpGet:
+              path: /minio/health/live
+              port: 8080
+            initialDelaySeconds: 120
+            periodSeconds: 20
+          readinessProbe:
+            httpGet:
+              path: /minio/health/ready
+              port: 8080
+            initialDelaySeconds: 120
+            periodSeconds: 20
         env:
         - name: SPARK_MODE
           value: "master"
