@@ -4,6 +4,7 @@ metadata:
   name: ingress-wildcard-host
   namespace: lakehouse
 spec:
+  ingressClassName: nginx
   selector:
     app: minio
   rules:
